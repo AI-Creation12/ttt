@@ -1,0 +1,110 @@
+[
+    {
+      "category": "air-fryer",
+      "slug": "air-fryer-chicken-breasts"
+    },
+    {
+      "category": "air-fryer",
+      "slug": "crispy-french-fries"
+    },
+    {
+      "category": "air-fryer",
+      "slug": "salmon-mustard-glaze"
+    },
+    {
+      "category": "quick-easy",
+      "slug": "pork-peanut-dragon-noodles"
+    },
+    {
+      "category": "quick-easy",
+      "slug": "creamy-tomato-spinach-pasta"
+    },
+    {
+      "category": "quick-easy",
+      "slug": "hearty-dumpling-soup"
+    },
+    {
+      "category": "comfort-food",
+      "slug": "penne-alla-vodka"
+    },
+    {
+      "category": "comfort-food",
+      "slug": "chicken-pot-pie"
+    },
+    {
+      "category": "comfort-food",
+      "slug": "beef-stroganoff"
+    },
+    {
+      "category": "street-food-inspired",
+      "slug": "low-fat-singapore-chilli-crab"
+    },
+    {
+      "category": "street-food-inspired",
+      "slug": "korean-fried-chicken-burgers"
+    },
+    {
+      "category": "street-food-inspired",
+      "slug": "spicy-lamb-keema-pau"
+    },
+    {
+      "category": "healthy-bowls",
+      "slug": "turmeric-buddha-bowl"
+    },
+    {
+      "category": "healthy-bowls",
+      "slug": "mediterranean-quinoa-bowl"
+    },
+    {
+      "category": "healthy-bowls",
+      "slug": "bang-bang-salmon-bowl"
+    },
+    {
+      "category": "plant-forward",
+      "slug": "green-bean-pasta-cashew-pesto"
+    },
+    {
+      "category": "plant-forward",
+      "slug": "sneaky-chickpea-burgers"
+    },
+    {
+      "category": "plant-forward",
+      "slug": "cauliflower-tikka-masala"
+    },
+    {
+      "category": "one-pot-wonders",
+      "slug": "creamy-cajun-chicken-pasta"
+    },
+    {
+      "category": "one-pot-wonders",
+      "slug": "beef-mushroom-stroganoff"
+    },
+    {
+      "category": "one-pot-wonders",
+      "slug": "chicken-chasseur"
+    },
+    {
+      "category": "global-fusion",
+      "slug": "kimchi-quesadillas"
+    },
+    {
+      "category": "global-fusion",
+      "slug": "thai-curry-risotto"
+    },
+    {
+      "category": "global-fusion",
+      "slug": "korean-bbq-tacos"
+    },
+    {
+      "category": "desserts-baking",
+      "slug": "key-lime-pie"
+    },
+    {
+      "category": "desserts-baking",
+      "slug": "cinnamon-roll-focaccia"
+    },
+    {
+      "category": "desserts-baking",
+      "slug": "tahini-mississippi-mud-pie"
+    }
+  ]
