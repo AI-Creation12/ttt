@@ -1,19 +1,16 @@
 import React from 'react';
+import { StaticRouter } from 'react-router';
 import { HelmetProvider } from 'react-helmet-async';
+import { renderToPipeableStream } from 'react-dom/server';
 import App from './App';
-import { StaticRouter } from 'react-router/server';
-import { CookieManager } from 'react-cookie-manager';
 
 export async function render(url: string, res: import('stream').Writable) {
-  const { renderToPipeableStream } = await import('react-dom/server');
   const helmetContext = {};
   const { pipe } = renderToPipeableStream(
     <HelmetProvider context={helmetContext}>
-      <CookieManager cookieKitId="" displayType="modal" theme="light">
-        <StaticRouter location={url}>
-          <App />
-        </StaticRouter>
-      </CookieManager>
+      <StaticRouter location={url}>
+        <App />
+      </StaticRouter>
     </HelmetProvider>,
     {
       onShellReady() {

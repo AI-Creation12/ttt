@@ -1,11 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import sitemap from 'vite-plugin-sitemap';
-import recipes from './src/data/recipes.json'; // Make sure you have created this file
+import recipes from './src/data/recipes.json';
 
-// --- Step 1: Define ALL your page types ---
-
-// List all your main static pages
 const staticRoutes = [
   '/',
   '/how-it-works',
@@ -15,10 +12,9 @@ const staticRoutes = [
   '/terms',
   '/privacy',
   '/contact',
-  '/category', // The main category listing page
+  '/category',
 ];
 
-// List all your category slugs to generate their pages
 const categorySlugs = [
   'air-fryer',
   'quick-easy',
@@ -31,40 +27,48 @@ const categorySlugs = [
   'desserts-baking',
 ];
 
-// Automatically generate the full paths for your category pages
 const categoryRoutes = categorySlugs.map(slug => `/category/${slug}`);
-
-// Automatically generate the full paths for your recipe pages from the JSON file
 const recipeRoutes = recipes.map(recipe => `/inspiration/${recipe.category}/${recipe.slug}`);
 
-
-// --- Step 2: Combine all routes into one master list ---
 const allRoutes = [
   ...staticRoutes,
   ...categoryRoutes,
   ...recipeRoutes,
 ];
 
-
-// --- Step 3: Configure Vite ---
-export default defineConfig(({ ssrBuild }) => ({
-  plugins: [
-    react(), 
-    sitemap({ 
-      hostname: 'https://aicreative.website', 
-      dynamicRoutes: allRoutes 
-    })
-  ],
-  build: {
-    outDir: ssrBuild ? 'dist/server' : 'dist/client',
-    rollupOptions: {
-      input: ssrBuild ? 'src/entry-server.tsx' : 'src/entry-client.tsx',
-      external: ssrBuild ? ['react-router'] : []
+export default defineConfig(({ command, mode }) => {
+  // Sprawdź czy to build SSR na podstawie argumentów CLI
+  const isSSRBuild = process.argv.includes('--ssr');
+  
+  console.log('isSSRBuild:', isSSRBuild); // Debug log
+  console.log('command:', command); // Debug log
+  
+  return {
+    plugins: [
+      react(),
+      // Sitemap tylko dla buildu klienta
+      !isSSRBuild && sitemap({
+        hostname: 'https://aicreative.website',
+        dynamicRoutes: allRoutes,
+      }),
+    ].filter(Boolean),
+    
+    build: {
+      outDir: isSSRBuild ? 'dist/server' : 'dist/client',
+      rollupOptions: {
+        input: isSSRBuild ? 'src/entry-server.tsx' : 'src/entry-client.tsx',
+      },
+      ssr: isSSRBuild,
+      emptyOutDir: false, // Nie kasuj folderów między buildami
     },
-    ssr: ssrBuild
-  },
-  ssr: { 
-    noExternal: ['react-cookie-manager', 'react-ga4'],
-    external: ['react-router/server']
-  }
-}));
+    
+    ssr: {
+      noExternal: [
+        'react-cookie-manager',
+        'react-ga4',
+        'react-router',
+        'react-router-dom',
+      ],
+    },
+  };
+});

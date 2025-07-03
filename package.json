@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node server/index.ts",
-    "build": "vite build && vite build --ssr src/entry-server.tsx",
-    "start": "node server/dist/index.js"
+    "build": "vite build && vite build --ssr",
+    "start": "node dist/server/entry-server.js"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
