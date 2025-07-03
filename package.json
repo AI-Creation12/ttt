@@ -1,10 +1,10 @@
 {
-  "name": "cyber-cooker",
+  "name": "aicreative",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite dev --ssr src/entry-server.tsx",
+    "dev": "node server/index.ts",
     "build": "vite build && vite build --ssr src/entry-server.tsx",
     "start": "node server/dist/index.js"
   },
@@ -13,10 +13,11 @@
     "@heroicons/react": "^2.1.1",
     "axios": "^1.9.0",
     "clsx": "^2.1.0",
-    "express": "^4.19.2",
+    "express": "^4.21.2",
     "install": "^0.13.0",
     "lucide-react": "^0.344.0",
     "npm": "^11.4.0",
+    "path": "^0.12.7",
     "react": "^18.3.1",
     "react-cookie-manager": "^3.7.2",
     "react-dom": "^18.3.1",

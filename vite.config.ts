@@ -48,13 +48,23 @@ const allRoutes = [
 
 // --- Step 3: Configure Vite ---
 export default defineConfig(({ ssrBuild }) => ({
-  plugins: [react(), sitemap({ hostname: 'https://aicreative.website', dynamicRoutes: allRoutes })],
+  plugins: [
+    react(), 
+    sitemap({ 
+      hostname: 'https://aicreative.website', 
+      dynamicRoutes: allRoutes 
+    })
+  ],
   build: {
     outDir: ssrBuild ? 'dist/server' : 'dist/client',
     rollupOptions: {
-      input: ssrBuild ? '/src/entry-server.tsx' : '/src/entry-client.tsx'
+      input: ssrBuild ? 'src/entry-server.tsx' : 'src/entry-client.tsx',
+      external: ssrBuild ? ['react-router'] : []
     },
     ssr: ssrBuild
   },
-  ssr: { noExternal: ['react-cookie-manager', 'react-ga4'] }
+  ssr: { 
+    noExternal: ['react-cookie-manager', 'react-ga4'],
+    external: ['react-router/server']
+  }
 }));
